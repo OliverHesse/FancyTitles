@@ -1,0 +1,27 @@
+the player defines a title like so
+{
+    name : "Zombie Slayer",
+    description : "even the soulless fear you",
+    renderer : {
+        type:StatTrack,
+        Data:{
+            Stat:minecraft:zombie
+            color:#(whatever red is)
+            Prefix: “SLAYER: “
+        }
+    }
+    unlock_handler : {
+        type:StatMileStone,
+        Data:{
+            Milestones :[
+                {
+                    Stat:minecraft:zombie,
+                    value:20
+                }
+            ]
+        }
+    }
+
+}
+
+the statTra
