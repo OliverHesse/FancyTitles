@@ -1,5 +1,14 @@
 package net.lucent.fancytitles;
 
+import net.lucent.fancytitles.api.registries.CommonRegistries;
+import net.lucent.fancytitles.api.titles.Title;
+import net.lucent.fancytitles.built_in.formatters.BuiltInFormatters;
+import net.lucent.fancytitles.built_in.renderers.BuiltInRenderers;
+import net.lucent.fancytitles.built_in.textures.BuiltInTextures;
+import net.lucent.fancytitles.built_in.unlock_handlers.BuiltInUnlockCondition;
+import net.lucent.fancytitles.data_attachments.ModAttachments;
+import net.minecraft.resources.ResourceLocation;
+import org.jline.utils.Log;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -48,15 +57,16 @@ public class FancyTitles {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        BuiltInRenderers.register(modEventBus);
+        BuiltInFormatters.register(modEventBus);
+        BuiltInTextures.register(modEventBus);
+        BuiltInUnlockCondition.register(modEventBus);
+        ModAttachments.register(modEventBus);
 
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
-
-
-
-
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

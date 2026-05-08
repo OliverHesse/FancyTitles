@@ -1,0 +1,9 @@
+{
+  "sources": [
+    {
+      "type": "directory",
+      "source": "fancytitles:title_sprites",
+      "prefix": "title_sprites/"
+    }
+  ]
+}

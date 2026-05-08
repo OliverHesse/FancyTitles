@@ -12,7 +12,7 @@ public interface ITitleChatFormatter {
      * @param currentMessage the message that was going to be sent
      * @return the message modified by the title
      */
-    Component getModifiedChatMessage(Component currentMessage);
+    Component getModifiedChatMessage(Component currentMessage,ITitleChatFormatterData formatterData);
 
 
     MapCodec<ITitleChatFormatterData> codec();

@@ -14,12 +14,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.RegistryBuilder;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class RegistryHelper {
 
 
 
-    public record DataPackRegistry<T>(ResourceKey<Registry<T>> key,Codec<T> codec){
+    public record DataPackRegistry<T>(ResourceKey<Registry<T>> key, Supplier<Codec<T>> codec){
 
         public Registry<T> get(Level level){
             Optional<Registry<T>> registry = level.registryAccess().registry(key);
@@ -31,13 +32,14 @@ public class RegistryHelper {
         }
     }
 
-    public static <T> DataPackRegistry<T> dataPackRegistry(String key, String modId, Codec<T> codec){
+    public static <T> DataPackRegistry<T> dataPackRegistry(String key, String modId, Supplier<Codec<T>> codec){
         return new DataPackRegistry<>(key(key,modId),codec);
     }
 
     public static <T> ResourceKey<Registry<T>> key(String key,String modId){
         return ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(modId,key));
     }
+
 
     public static <T> Registry<T> registry(String key){
         return registry(key,"none");
@@ -50,9 +52,6 @@ public class RegistryHelper {
         return new RegistryBuilder<>(registryKey)
                 .defaultKey(defaultIdentifier)
                 .create();
-    }
-    public static <T> DeferredRegister<T> deferredRegister(Registry<T> registry,String modId){
-        return DeferredRegister.create(registry,modId);
     }
 
 }

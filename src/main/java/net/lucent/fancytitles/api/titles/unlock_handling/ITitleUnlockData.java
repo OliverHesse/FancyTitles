@@ -5,5 +5,4 @@ import com.mojang.serialization.Codec;
 public interface ITitleUnlockData {
 
 
-    Codec<ITitleUnlockData> codec();
 }

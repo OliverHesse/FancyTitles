@@ -1,27 +1,12 @@
-the player defines a title like so
-{
-    name : "Zombie Slayer",
-    description : "even the soulless fear you",
-    renderer : {
-        type:StatTrack,
-        Data:{
-            Stat:minecraft:zombie
-            color:#(whatever red is)
-            Prefix: “SLAYER: “
-        }
-    }
-    unlock_handler : {
-        type:StatMileStone,
-        Data:{
-            Milestones :[
-                {
-                    Stat:minecraft:zombie,
-                    value:20
-                }
-            ]
-        }
-    }
+storage and loading
 
-}
+we first read all titles and add them to the container.
+then we loop through ALL titles and check if the player satisfies the condition
+if no and have it remove it
+if yes and don't have it add it
 
-the statTra
+this lets me add a special condition called SelfFulfilling where the player satisfies the condition if they have it.
+this is useful for special methods of acquisition, like a special event or special item usage
+essentially something that cannot be tracked normally
+
+this should be used sparingly however, since you could always just add a new statistic and use that

@@ -1,5 +1,6 @@
 package net.lucent.fancytitles.api.data;
 
+import net.lucent.fancytitles.api.titles.Title;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.Collection;
@@ -16,6 +17,7 @@ public interface ITitleContainer {
     boolean hasTitleEquipped();
 
     ResourceLocation getActiveTitleIdentifier();
+    Title getActiveTitle();
     //ITitleRenderer getActiveRenderer(); this will be used in
     // ClientTitleContainer but not serverTitleContainer so to better separate client and server logic i will not include it
 
@@ -30,4 +32,5 @@ public interface ITitleContainer {
     void removeTitle(ResourceLocation title);
     boolean hasTitle(ResourceLocation title);
 
+    public Title getTitle(ResourceLocation tile);
 }

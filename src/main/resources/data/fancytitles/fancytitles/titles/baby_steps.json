@@ -1,0 +1,16 @@
+{
+  "name": "Baby Steps",
+  "description" : "your journey is just beginning",
+  "renderer": {
+    "type": "fancytitles:simple_renderer",
+    "prefix": "[Baby Steps]"
+  },
+  "formatter": {
+    "type": "fancytitles:simple_formatter",
+    "prefix" :"[Baby Steps]"
+  },
+  "unlock_condition": {
+    "type": "fancytitles:advancement_condition",
+    "advancement": "minecraft:story/root"
+  }
+}
